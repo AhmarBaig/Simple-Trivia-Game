@@ -9,6 +9,8 @@ let randValue = listOfCountries[randNum];
 
 function App() {
 
+  // Using props from the parent, I try to add randomness via the Parent instead of the Child component
+  // NEEDS TO BE LOOKED AT; not sure what is wrong, problem is either in Guesser or App
   const [ randCountry, setRandCountry ] = useState({
     countryName: countries[randValue].name,
     capital: countries[randValue].capital

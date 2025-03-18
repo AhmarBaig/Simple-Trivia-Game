@@ -34,12 +34,8 @@ export default function Guesser(props) {
                 points: prevCountryData.points + 1
             }));
             console.log("Correct");
-            // console.log(countries[randValue].name);
-            // console.log(countries[randValue].capital);
         } else {
             console.log("Incorrect");
-            // console.log(countries[randValue].name);
-            // console.log(countries[randValue].capital);
             return <h1>"Answer is incorrect. Please try again."</h1>
         }
     }
@@ -61,8 +57,6 @@ export default function Guesser(props) {
 
                 <h1>Points: {countryData.points}</h1>
             </form>
-            
-
         </div>
     )
 }
