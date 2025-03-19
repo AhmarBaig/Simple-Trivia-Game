@@ -12,19 +12,19 @@ export default function Guesser(props) {
         setUserGuess(value); 
     }
 
+    function handleDropdownChange() {
+
+    }
+
     // If answer is the same as the prop, then add 1 point and change the question+answer
     // FIXED: Data is now handled fully by App.jsx, user info is handled in the local state
     function handleSubmit(event) {
         event.preventDefault();
-
-        const { value } = event.target;
-        console.log(`Input Value: ${value}`);
         
         if (userGuess === props.Country.capital) {
             props.ChangeCountry();
+            setUserGuess(() => "");
             console.log("Correct");
-            console.log(`New Country: ${props.Country.countryName}`);
-            console.log(`New Capital: ${props.Country.capital}`);
         } else {
             console.log("Incorrect");
             console.log(props.Country.countryName);
@@ -38,6 +38,17 @@ export default function Guesser(props) {
             <form onSubmit={handleSubmit}>
                 <h1>What is the capital of {props.Country.countryName}</h1>
                 
+                {/* <select 
+                    value={props.Capitals} 
+                    onChange={handleDropdownChange}>
+                    <option value="">-- Select a Capital --</option>
+                    {Object.entries(props.Capitals).map(([id, capital]) => (
+                        <option key={id} value={capital}>
+                            {capital}
+                        </option>
+                    ))}
+                </select> */}
+
                 <input 
                     type="text"
                     placeholder="Name of the Capital"
