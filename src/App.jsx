@@ -13,19 +13,20 @@ function App() {
   // NEEDS TO BE LOOKED AT; not sure what is wrong, problem is either in Guesser or App
   const [ randCountry, setRandCountry ] = useState({
     countryName: countries[randValue].name,
-    capital: countries[randValue].capital
+    capital: countries[randValue].capital,
+    points: 0
   });
   
-  function changeCountry() {
+  const changeCountry = () => {
     randNum = Math.floor(Math.random() * listOfCountries.length);
     randValue = listOfCountries[randNum];
 
-    setRandCountry(() => ({
+    setRandCountry((prevCountryData) => ({
       countryName: countries[randValue].name,
-      capital: countries[randValue].capital
+      capital: countries[randValue].capital,
+      points: prevCountryData.points + 1
     }))
-
-  }
+  };
 
   return (
     <>
